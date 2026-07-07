@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const menus = [
   {
-    title: "",
+    title: "Beranda",
     href: "/",
   },
   {

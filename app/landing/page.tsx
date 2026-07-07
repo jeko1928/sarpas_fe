@@ -14,7 +14,7 @@ export default function Home(){
         className="object-cover"
       />
 
-      <div className="absolute inset-0 bg-black/40"/>
+      <div className="absolute inset-0 bg-white/40"/>
 
       <header className="absolute top-0 left-0 right-0 z-20 flex justify-between items-center px-10 py-5 text-white">
 
@@ -35,7 +35,7 @@ export default function Home(){
 
       <section className="relative z-10 flex justify-center items-center h-full">
 
-        <div className="bg-black/50 rounded-lg p-10 text-center text-white max-w-3xl">
+        <div className="bg-white/50 rounded-lg p-10 text-center text-white max-w-3xl">
 
           <h1 className="text-5xl font-bold">
             SELAMAT DATANG DI

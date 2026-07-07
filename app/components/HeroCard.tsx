@@ -5,7 +5,7 @@ export default function HeroCard() {
 
 <div className="mt-12">
 
-<div className="w-[700px] bg-black/55 text-center p-8">
+<div className="w-[700px] bg-white/55 text-center p-8">
 
 <h1 className="text-white text-5xl font-bold">
 

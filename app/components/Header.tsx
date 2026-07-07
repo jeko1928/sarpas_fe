@@ -2,26 +2,40 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-<header className="absolute top-0 left-5000 w-full z-50">
-  <div className="max-w-[1400px] mx-auto h-[60px] flex items-center justify-end px-16">
+    <header className="absolute top-0 left-0 w-full z-50">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+          height: "60px",
+          paddingRight: "40px",
+        }}
+      >
+        <Link href="/" style={{ marginRight: "30px", color: "white" }}>
+          Beranda
+        </Link>
 
-       <nav className="absolute top-[8px] right-[25px] flex gap-[16px] text-[16px] text-white">
+        <Link href="/" style={{ marginRight: "30px", color: "white" }}>
+          Regulasi
+        </Link>
 
-<Link href="/">Beranda</Link>
+        <Link href="/panduan" style={{ marginRight: "30px", color: "white" }}>
+          Panduan
+        </Link>
 
-<Link href="/">Regulasi</Link>
+        <Link href="/faq" style={{ marginRight: "30px", color: "white" }}>
+          FAQ
+        </Link>
 
-<Link href="/">Panduan</Link>
+        <Link href="/kontak" style={{ marginRight: "30px", color: "white" }}>
+          Kontak
+        </Link>
 
-<Link href="/">Faq</Link>
-
-<Link href="/">Kontak</Link>
-
-<Link href="/">Login</Link>
-
-</nav>
-
-  </div>
-</header>
+        <Link href="/login" style={{ color: "white" }}>
+          Login
+        </Link>
+      </div>
+    </header>
   );
 }

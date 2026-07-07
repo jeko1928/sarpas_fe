@@ -7,7 +7,7 @@ export default function WelcomeCard() {
 <div
 className="
 w-[760px]
-bg-black/55
+bg-white/55
 backdrop-blur-sm
 text-center
 px-16

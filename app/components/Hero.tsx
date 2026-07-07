@@ -10,7 +10,7 @@ export default function Hero() {
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/25"></div>
+      <div className="absolute inset-0 bg-white/25"></div>
 
       {/* Isi */}
       <div
