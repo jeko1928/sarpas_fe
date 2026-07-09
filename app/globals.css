@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 *{
   margin:0;
@@ -11,8 +9,7 @@
 html,
 body{
   width:100%;
-  height:100%;
-  overflow-x:hidden;
+  min-height:100%;
 }
 
 body{
@@ -28,44 +25,4 @@ a{
 img{
   max-width:100%;
   display:block;
-}
-
-.container{
-  width:1200px;
-  margin:auto;
-}
-
-.hero-bg{
-  background-image:url("/images/bg.jpg");
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-}
-
-.shadow-card{
-  box-shadow:0 10px 25px rgba(0,0,0,.35);
-}
-
-.btn-green{
-  background:#4caf50;
-  color:#fff;
-  padding:14px 40px;
-  font-weight:bold;
-  transition:.3s;
-}
-
-.btn-green:hover{
-  background:#3d9441;
-}
-
-.btn-orange{
-  background:#d97706;
-  color:#fff;
-  padding:14px 40px;
-  font-weight:bold;
-  transition:.3s;
-}
-
-.btn-orange:hover{
-  background:#b65f00;
 }

@@ -6,9 +6,9 @@ export default function DaftarPage() {
   return (
     <main className="min-h-screen bg-[#f7f7f7]">
 
-      <Header />
-
       <Navbar />
+
+
 
       <div className="w-full px-6 py-6">
         <RegistrationForm />

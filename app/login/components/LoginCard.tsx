@@ -1,43 +1,117 @@
 import Image from "next/image";
-import LoginForm from "./LoginForm";
+import Link from "next/link";
+import LoginForm from "../components/LoginForm";
 
 export default function LoginCard() {
   return (
-    <div className="w-[950px] bg-white shadow-lg flex">
+    <div
+      className="
+        w-full
+        max-w-5xl
+        overflow-hidden
+        rounded-3xl
+        bg-white
+        shadow-2xl
+        grid
+        lg:grid-cols-[420px_1fr]
+      "
+    >
+      {/* ======================================== */}
+      {/* Left Panel */}
+      {/* ======================================== */}
 
-      {/* kiri */}
+      <div className="relative overflow-hidden bg-gradient-to-br from-[#0d6b70] via-[#138b72] to-[#22a06b]">
 
-      <div className="w-[360px] bg-[#49a36f] text-white flex flex-col items-center justify-center py-16">
+        {/* Background Decoration */}
+        <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-20 -right-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
 
-        <Image
-          src="/bpdplogo.png"
-          alt="Logo"
-          width={180}
-          height={180}
-        />
+        <div className="relative flex h-full flex-col items-center justify-center px-10 py-14 text-white">
 
-        <h2 className="mt-8 text-3xl font-semibold text-center">
-          Selamat Datang Kembali
-        </h2>
+          {/* Logo */}
+          <div className="rounded-full bg-white/10 p-5 backdrop-blur-sm">
 
-        <p className="text-xl mt-2">
-          di Aplikasi SARPRAS
-        </p>
+            <Image
+              src="/bpdplogo.png"
+              alt="BPDP"
+              width={130}
+              height={130}
+              priority
+            />
 
-        <button className="mt-12 text-white underline">
-          &lt;&lt; Kembali
-        </button>
+          </div>
+
+          {/* Title */}
+          <h2 className="mt-8 text-center text-3xl font-bold">
+            Selamat Datang
+          </h2>
+
+          <p className="mt-3 text-center text-lg text-emerald-50">
+            di Aplikasi SARPRAS
+          </p>
+
+          <p className="mt-6 text-center text-sm leading-7 text-emerald-100">
+            Sistem Informasi Sarana dan Prasarana
+            <br />
+            BPDP
+          </p>
+
+          {/* Back */}
+          <Link
+            href="/"
+            className="
+              mt-12
+              rounded-xl
+              border
+              border-white/30
+              px-6
+              py-3
+              font-medium
+              transition
+              hover:bg-white
+              hover:text-[#0d6b70]
+            "
+          >
+            ← Kembali
+          </Link>
+
+        </div>
 
       </div>
 
-      {/* kanan */}
+      {/* ======================================== */}
+      {/* Right Panel */}
+      {/* ======================================== */}
 
-      <div className="flex-1 p-12">
+      <div className="bg-slate-50">
 
-        <LoginForm />
+        <div className="flex h-full items-center justify-center p-8 lg:p-14">
+
+          <div className="w-full max-w-md">
+
+            <div className="mb-8">
+
+              <span className="rounded-full bg-emerald-100 px-3 py-1 text-sm font-medium text-emerald-700">
+                Login
+              </span>
+
+              <h1 className="mt-4 text-3xl font-bold text-gray-800">
+                Masuk Akun SARPRAS
+              </h1>
+
+              <p className="mt-2 text-gray-500">
+                Silakan masuk menggunakan email dan kata sandi Anda.
+              </p>
+
+            </div>
+
+            <LoginForm />
+
+          </div>
+
+        </div>
 
       </div>
-
     </div>
   );
 }

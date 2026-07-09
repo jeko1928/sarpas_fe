@@ -1,60 +1,159 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function HeroCard() {
   return (
+    <section className="relative min-h-screen overflow-hidden">
 
-<div className="mt-12">
+      {/* Background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/images/bg-home.jpg')",
+        }}
+      />
 
-<div className="w-[700px] bg-white/55 text-center p-8">
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/55" />
 
-<h1 className="text-white text-5xl font-bold">
+      {/* Content */}
+      <div className="relative z-10 flex min-h-screen items-center justify-center px-6">
 
-SELAMAT DATANG DI APLIKASI SARPRAS
+        <div className="max-w-5xl text-center text-white">
 
-</h1>
+          {/* Logo */}
+          <div className="mb-8 flex justify-center">
 
-<p className="text-white mt-5 leading-8">
+            <div className="rounded-full bg-white/10 p-6 backdrop-blur-md">
 
-SARPRAS adalah Aplikasi Sarana dan Prasarana
-untuk membantu meningkatkan produksi
-dan produktivitas ataupun nilai tambah
-dalam pengelolaan Kebun Kelapa Sawit.
+              <Image
+                src="/bpdplogo.png"
+                alt="BPDP"
+                width={110}
+                height={110}
+              />
 
-</p>
+            </div>
 
-<p className="text-white mt-5">
+          </div>
 
-Daftarkan kelembagaan/kelompok tani Anda
+          {/* Title */}
+          <h1 className="text-4xl font-extrabold leading-tight md:text-6xl">
 
-</p>
+            Selamat Datang di
 
-<p className="text-white">
+            <span className="block text-emerald-400">
+              Aplikasi SARPRAS
+            </span>
 
-melalui tombol dibawah ini.
+          </h1>
 
-</p>
+          {/* Description */}
+          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-200 md:text-xl">
 
-<div className="flex justify-center gap-4 mt-10">
+            SARPRAS merupakan Sistem Informasi Sarana dan Prasarana
+            untuk membantu meningkatkan produksi, produktivitas,
+            serta nilai tambah dalam pengelolaan kebun kelapa sawit.
 
-<Link
-href="/daftar"
-className="bg-[#4CAF50] text-white px-12 py-3 font-bold"
->
-PENDAFTARAN
-</Link>
+          </p>
 
-<Link
-href="/panduan"
-className="bg-[#e57255] text-white px-12 py-3 font-bold"
->
-PANDUAN
-</Link>
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-gray-300">
 
-</div>
+            Daftarkan kelembagaan atau kelompok tani Anda
+            melalui sistem ini untuk mempermudah proses
+            pengajuan bantuan dan fasilitas dari pemerintah
+            dalam pengembangan kelembagaan pekebun.
 
-</div>
+          </p>
 
-</div>
+          {/* Button */}
+          <div className="mt-12 flex flex-col justify-center gap-5 sm:flex-row">
 
+            <Link
+              href="/registration"
+              className="
+                rounded-xl
+                bg-emerald-600
+                px-10
+                py-4
+                text-lg
+                font-semibold
+                shadow-xl
+                transition
+                hover:bg-emerald-700
+                hover:scale-105
+              "
+            >
+              Pendaftaran
+            </Link>
+
+            <Link
+              href="/panduan"
+              className="
+                rounded-xl
+                border
+                border-white/40
+                bg-white/10
+                px-10
+                py-4
+                text-lg
+                font-semibold
+                backdrop-blur-md
+                transition
+                hover:bg-white
+                hover:text-gray-900
+              "
+            >
+              Panduan
+            </Link>
+
+          </div>
+
+          {/* Bottom Info */}
+          <div className="mt-20 grid gap-6 md:grid-cols-3">
+
+            <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-md">
+
+              <h3 className="text-3xl font-bold text-emerald-400">
+                100%
+              </h3>
+
+              <p className="mt-2 text-sm text-gray-200">
+                Pendaftaran dilakukan secara online.
+              </p>
+
+            </div>
+
+            <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-md">
+
+              <h3 className="text-3xl font-bold text-emerald-400">
+                Cepat
+              </h3>
+
+              <p className="mt-2 text-sm text-gray-200">
+                Proses registrasi lebih mudah dan efisien.
+              </p>
+
+            </div>
+
+            <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-md">
+
+              <h3 className="text-3xl font-bold text-emerald-400">
+                Aman
+              </h3>
+
+              <p className="mt-2 text-sm text-gray-200">
+                Data kelembagaan tersimpan dengan aman.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
   );
 }

@@ -1,164 +1,120 @@
-import FormInput from "./FormInput";
-import FormSelect from "./FormSelect";
+import Header from "../components/Header";
+import ProfileSection from "../components/ProfilSection";
+import BankSection from "../components/BankSection";
+import CooperativeSection from "../components/CooperativeSection";
 
-export default function RegistrationForm() {
+export default function Registration() {
   return (
-    <div className="bg-white border border-gray-300 rounded-md shadow-sm">
+    <main className="min-h-screen bg-slate-100">
 
-      {/* Header Form */}
-      <div className="border-b border-gray-300 px-6 py-4">
-        <h2 className="text-xl font-semibold text-gray-700">
-          Profile Lembaga
-        </h2>
-        <p className="text-sm text-red-500 mt-1">
-          * Wajib diisi
-        </p>
-      </div>
+      {/* Header */}
+      <Header />
 
-      <div className="p-6 space-y-5">
+      {/* Content */}
+      <section className="max-w-7xl mx-auto px-6 py-8">
 
-        {/* Baris 1 */}
-        <div className="grid grid-cols-4 gap-5">
-          <FormInput label="Nama Kelembagaan Pekebun" required />
-          <FormInput label="Email Lembaga" required type="email" />
-          <FormInput label="Nama Ketua Pengurus" required />
-          <FormInput label="Telepon" required />
+        {/* Judul Halaman */}
+        <div className="mb-8">
+
+          <div className="flex items-center gap-3">
+
+            <div className="h-12 w-2 rounded-full bg-emerald-600" />
+
+            <div>
+
+              <h1 className="text-3xl font-bold text-gray-800">
+                Pendaftaran Kelembagaan Pekebun
+              </h1>
+
+              <p className="mt-1 text-gray-500">
+                Lengkapi seluruh data pendaftaran kelembagaan.
+              </p>
+
+            </div>
+
+          </div>
+
         </div>
 
-        {/* Baris 2 */}
-        <div className="grid grid-cols-4 gap-5">
+        {/* Informasi */}
+        <div className="mb-8 rounded-2xl border border-amber-200 bg-amber-50 p-5">
 
-          <FormInput label="Handphone" required />
+          <div className="flex items-start gap-3">
 
-          <div className="col-span-3">
-            <label className="block text-sm font-medium mb-2">
-              Alamat <span className="text-red-500">*</span>
-            </label>
+            <div className="mt-1 text-xl">⚠️</div>
 
-            <textarea
-              rows={2}
+            <div>
+
+              <h3 className="font-semibold text-amber-800">
+                Informasi
+              </h3>
+
+              <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-amber-700">
+                <li>Kolom bertanda (*) wajib diisi.</li>
+                <li>Pastikan email yang digunakan masih aktif.</li>
+                <li>Ukuran maksimal dokumen adalah 10 MB.</li>
+                <li>Gunakan data sesuai dokumen resmi.</li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Form */}
+        <div className="space-y-8">
+
+          <ProfileSection />
+
+          <BankSection />
+
+          <CooperativeSection />
+
+        </div>
+
+        {/* Footer Button */}
+        <div className="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+
+          <div className="flex justify-end gap-4">
+
+            <button
               className="
-                w-full
+                rounded-xl
                 border
                 border-gray-300
-                rounded
-                px-3
-                py-2
-                focus:outline-none
-                focus:ring-2
-                focus:ring-green-500
+                px-8
+                py-3
+                font-medium
+                transition
+                hover:bg-gray-100
               "
-            />
-          </div>
+            >
+              Reset
+            </button>
 
-        </div>
-
-        {/* Baris 3 */}
-        <div className="grid grid-cols-4 gap-5">
-          <FormSelect label="Provinsi" required options={[]} />
-          <FormSelect label="Kabupaten" required options={[]} />
-          <FormSelect label="Kecamatan" required options={[]} />
-          <FormSelect label="Kelurahan / Desa" required options={[]} />
-        </div>
-
-        {/* Baris 4 */}
-        <div className="grid grid-cols-4 gap-5">
-          <FormInput label="Kode Pos" required />
-          <FormInput label="Petugas Input" required />
-          <FormInput label="Handphone Aktif Petugas Input" required />
-          <div />
-        </div>
-
-        {/* Upload */}
-        <div className="grid grid-cols-2 gap-8 pt-6">
-
-          {/* Kiri */}
-          <div className="space-y-5">
-
-            <div>
-              <label className="block text-sm font-medium mb-2">
-                Legalitas (Akta Pendirian/Perubahan)
-              </label>
-
-              <input
-                type="file"
-                className="block w-full text-sm border rounded p-2"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium mb-2">
-                Dasar Penunjukan Ketua (RAT/SK)
-              </label>
-
-              <input
-                type="file"
-                className="block w-full text-sm border rounded p-2"
-              />
-            </div>
-
-          </div>
-
-          {/* Kanan */}
-          <div>
-
-            <p className="text-sm text-blue-600 leading-7">
-              Dokumen yang diupload berdasarkan jenis kelembagaan:
-              <br />
-              1. Kelompok Tani dan Gapoktan → Surat Registrasi.
-              <br />
-              2. Koperasi → SK Pengesahan Koperasi.
-              <br />
-              3. Kelembagaan Pekebun Lainnya → Izin/Pengesahan.
-            </p>
-
-            <div className="mt-6">
-              <label className="block text-sm font-medium mb-2">
-                Jenis Lembaga
-              </label>
-
-              <select className="w-full border rounded h-11 px-3">
-                <option>Kelompok Tani / Gabungan Kelompok Tani</option>
-              </select>
-            </div>
+            <button
+              className="
+                rounded-xl
+                bg-emerald-600
+                px-10
+                py-3
+                font-medium
+                text-white
+                shadow-md
+                transition
+                hover:bg-emerald-700
+              "
+            >
+              Daftar Sekarang
+            </button>
 
           </div>
 
         </div>
 
-        {/* Tombol */}
-        <div className="flex justify-end gap-3 pt-8">
+      </section>
 
-          <button
-            className="
-              px-6
-              py-2
-              bg-gray-500
-              text-white
-              rounded
-              hover:bg-gray-600
-            "
-          >
-            Reset
-          </button>
-
-          <button
-            className="
-              px-6
-              py-2
-              bg-[#2c9a72]
-              text-white
-              rounded
-              hover:bg-[#23805f]
-            "
-          >
-            Daftar
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
+    </main>
   );
 }

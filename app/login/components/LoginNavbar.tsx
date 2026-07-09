@@ -1,54 +1,36 @@
 import Link from "next/link";
 
-const menus = [
-  {
-    title: "Beranda",
-    href: "/",
-  },
-  {
-    title: "Regulasi",
-    href: "#",
-  },
-  {
-    title: "Panduan",
-    href: "/panduan",
-  },
-  {
-    title: "FAQ",
-    href: "#",
-  },
-  {
-    title: "Kontak",
-    href: "#",
-  },
-];
-
-export default function LoginNavbar() {
+export default function Navbar() {
   return (
-    <nav className="bg-[#32996c] h-10">
-      <div className="w-full h-full flex justify-end items-center px-10">
+    <nav className="bg-[#33996e]">
+      <div className="container mx-auto">
+        <div className="flex justify-end items-center h-[38px] text-white text-sm">
 
-        <div className="flex items-center gap-6 text-white text-sm">
+          <Link href="/"  style={{ marginRight: "30px", color: "white" }}>
+            Beranda
+          </Link>
 
-          {menus.map((menu) => (
-            <Link
-              key={menu.title}
-              href={menu.href}
-              className="hover:underline"
-            >
-              {menu.title}
-            </Link>
-          ))}
+          <Link href="#"  style={{ marginRight: "30px", color: "white" }}>
+            Regulasi
+          </Link>
 
-          <Link
-            href="/login"
-            className="font-semibold underline"
-          >
+          <Link href="/panduan"  style={{ marginRight: "30px", color: "white" }}>
+            Panduan
+          </Link>
+
+          <Link href="#"  style={{ marginRight: "30px", color: "white" }}>
+            FAQ
+          </Link>
+
+          <Link href="#"  style={{ marginRight: "30px", color: "white" }}>
+            Kontak
+          </Link>
+
+          <Link href="/login"  style={{ color: "white" }}>
             Login
           </Link>
 
         </div>
-
       </div>
     </nav>
   );
