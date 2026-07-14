@@ -1,19 +1,13 @@
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
+import Navbar from "../components/Navbar";
 import RegistrationForm from "./components/RegistrationForm";
 
 export default function DaftarPage() {
   return (
-    <main className="min-h-screen bg-[#f7f7f7]">
-
+    <main className="min-h-screen bg-gray-50">
       <Navbar />
-
-
-
-      <div className="w-full px-6 py-6">
+      <div className="container-custom py-8">
         <RegistrationForm />
       </div>
-
     </main>
   );
 }

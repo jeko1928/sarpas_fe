@@ -1,94 +1,76 @@
 import Link from "next/link";
 
 export default function WelcomeCard() {
-
   return (
+    <div
+      className="
+        w-full
+        max-w-3xl
+        rounded-lg
+        bg-black/60
+        px-8
+        py-10
+        text-center
+        shadow-2xl
+        backdrop-blur-md
+        md:px-16
+      "
+    >
+      <h1 className="text-3xl font-extrabold leading-tight text-white md:text-5xl">
+        SELAMAT DATANG
+        <br />
+        DI APLIKASI SARPRAS
+      </h1>
 
-<div
-className="
-w-[760px]
-bg-white/55
-backdrop-blur-sm
-text-center
-px-16
-py-10
-rounded
-shadow-card
-"
->
+      <p className="mt-8 text-base leading-8 text-white md:text-lg">
+        SARPRAS adalah Aplikasi Sarana dan Prasarana untuk membantu
+        meningkatkan produksi, produktivitas dan nilai tambah
+        pengelolaan Kebun Kelapa Sawit.
+      </p>
 
-<h1
-className="
-text-white
-text-[44px]
-font-extrabold
-leading-tight
-"
->
+      <p className="mt-6 text-base text-white md:text-lg">
+        Daftarkan kelembagaan / kelompok tani Anda
+      </p>
 
-SELAMAT DATANG
+      <p className="text-base text-white md:text-lg">
+        melalui tombol di bawah ini.
+      </p>
 
-<br />
+      <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+        <Link
+          href="/daftar"
+          className="
+            rounded-md
+            bg-blue-600
+            px-8
+            py-3
+            text-lg
+            font-bold
+            text-white
+            transition
+            hover:bg-blue-700
+          "
+        >
+          PENDAFTARAN
+        </Link>
 
-DI APLIKASI SARPRAS
-
-</h1>
-
-<p
-className="
-text-white
-text-lg
-leading-8
-mt-8
-"
->
-
-SARPRAS adalah Aplikasi Sarana dan Prasarana
-
-untuk membantu meningkatkan produksi,
-
-produktivitas dan nilai tambah
-
-pengelolaan Kebun Kelapa Sawit.
-
-</p>
-
-<p className="text-white mt-6 text-lg">
-
-Daftarkan kelembagaan / kelompok tani Anda
-
-</p>
-
-<p className="text-white text-lg">
-
-melalui tombol dibawah ini.
-
-</p>
-
-<div className="flex justify-center gap-6 mt-10">
-
-<Link
-href="/daftar"
-className="btn-green rounded"
->
-
-PENDAFTARAN
-
-</Link>
-
-<Link
-href="/panduan"
-className="btn-orange rounded"
->
-
-PANDUAN
-
-</Link>
-
-</div>
-
-</div>
-
+        <Link
+          href="/panduan"
+          className="
+            rounded-md
+            bg-orange-500
+            px-8
+            py-3
+            text-lg
+            font-bold
+            text-white
+            transition
+            hover:bg-orange-600
+          "
+        >
+          PANDUAN
+        </Link>
+      </div>
+    </div>
   );
-
 }

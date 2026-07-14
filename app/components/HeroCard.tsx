@@ -3,157 +3,111 @@ import Link from "next/link";
 
 export default function HeroCard() {
   return (
-    <section className="relative min-h-screen overflow-hidden">
-
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/images/bg-home.jpg')",
-        }}
-      />
-
+    <section
+      className="relative min-h-screen bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/images/bg-home.jpg')",
+      }}
+    >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-0 bg-black/45" />
 
-      {/* Content */}
+      {/* Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5">
+          <Link href="/">
+            <Image
+              src="/images/logo-putih.png"
+              alt="SARPRAS"
+              width={180}
+              height={55}
+              priority
+            />
+          </Link>
+
+          <div className="hidden items-center gap-8 text-white lg:flex">
+            <Link href="/" className="hover:text-green-300">
+              Beranda
+            </Link>
+
+            <Link href="/regulasi" className="hover:text-green-300">
+              Regulasi
+            </Link>
+
+            <Link href="/panduan" className="hover:text-green-300">
+              Panduan
+            </Link>
+
+            <Link href="/faq" className="hover:text-green-300">
+              FAQ
+            </Link>
+
+            <Link href="/kontak" className="hover:text-green-300">
+              Kontak
+            </Link>
+
+            <Link href="/login" className="hover:text-green-300">
+              Login
+            </Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero */}
       <div className="relative z-10 flex min-h-screen items-center justify-center px-6">
-
-        <div className="max-w-5xl text-center text-white">
+        <div className="text-center text-white">
 
           {/* Logo */}
           <div className="mb-8 flex justify-center">
+            <Image
+              src="/images/logo-3.svg"
+              alt="Logo"
+              width={120}
+              height={120}
+            />
+          </div>
 
-            <div className="rounded-full bg-white/10 p-6 backdrop-blur-md">
+          {/* Box */}
+          <div className="mx-auto max-w-4xl bg-black/60 px-10 py-8">
 
-              <Image
-                src="/bpdplogo.png"
-                alt="BPDP"
-                width={110}
-                height={110}
-              />
+            <h1 className="text-4xl font-bold uppercase md:text-5xl">
+              Selamat Datang di Aplikasi <b>SARPRAS</b>
+            </h1>
 
-            </div>
+            <p className="mt-6 text-lg leading-8">
+              SARPRAS adalah Aplikasi Sarana dan Prasarana untuk membantu
+              meningkatkan produksi dan produktivitas atau nilai tambah dalam
+              pengelolaan Kebun Kelapa Sawit.
+            </p>
+
+            <p className="mt-6 text-lg leading-8">
+              Daftarkan kelembagaan/kelompok tani Anda melalui tombol di bawah
+              ini untuk mempermudah mendapatkan fasilitas dari pemerintah guna
+              mengembangkan kelembagaan/kelompok tani Anda.
+            </p>
 
           </div>
 
-          {/* Title */}
-          <h1 className="text-4xl font-extrabold leading-tight md:text-6xl">
-
-            Selamat Datang di
-
-            <span className="block text-emerald-400">
-              Aplikasi SARPRAS
-            </span>
-
-          </h1>
-
-          {/* Description */}
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-gray-200 md:text-xl">
-
-            SARPRAS merupakan Sistem Informasi Sarana dan Prasarana
-            untuk membantu meningkatkan produksi, produktivitas,
-            serta nilai tambah dalam pengelolaan kebun kelapa sawit.
-
-          </p>
-
-          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-gray-300">
-
-            Daftarkan kelembagaan atau kelompok tani Anda
-            melalui sistem ini untuk mempermudah proses
-            pengajuan bantuan dan fasilitas dari pemerintah
-            dalam pengembangan kelembagaan pekebun.
-
-          </p>
-
           {/* Button */}
-          <div className="mt-12 flex flex-col justify-center gap-5 sm:flex-row">
+          <div className="mt-12 flex flex-col items-center justify-center gap-5 sm:flex-row">
 
             <Link
-              href="/registration"
-              className="
-                rounded-xl
-                bg-emerald-600
-                px-10
-                py-4
-                text-lg
-                font-semibold
-                shadow-xl
-                transition
-                hover:bg-emerald-700
-                hover:scale-105
-              "
+              href="/pendaftaran"
+              className="rounded-md bg-blue-600 px-10 py-4 text-2xl font-bold uppercase transition hover:bg-blue-700"
             >
               Pendaftaran
             </Link>
 
             <Link
               href="/panduan"
-              className="
-                rounded-xl
-                border
-                border-white/40
-                bg-white/10
-                px-10
-                py-4
-                text-lg
-                font-semibold
-                backdrop-blur-md
-                transition
-                hover:bg-white
-                hover:text-gray-900
-              "
+              className="rounded-md bg-orange-500 px-10 py-4 text-2xl font-bold uppercase transition hover:bg-orange-600"
             >
               Panduan
             </Link>
 
           </div>
-
-          {/* Bottom Info */}
-          <div className="mt-20 grid gap-6 md:grid-cols-3">
-
-            <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-md">
-
-              <h3 className="text-3xl font-bold text-emerald-400">
-                100%
-              </h3>
-
-              <p className="mt-2 text-sm text-gray-200">
-                Pendaftaran dilakukan secara online.
-              </p>
-
-            </div>
-
-            <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-md">
-
-              <h3 className="text-3xl font-bold text-emerald-400">
-                Cepat
-              </h3>
-
-              <p className="mt-2 text-sm text-gray-200">
-                Proses registrasi lebih mudah dan efisien.
-              </p>
-
-            </div>
-
-            <div className="rounded-2xl bg-white/10 p-6 backdrop-blur-md">
-
-              <h3 className="text-3xl font-bold text-emerald-400">
-                Aman
-              </h3>
-
-              <p className="mt-2 text-sm text-gray-200">
-                Data kelembagaan tersimpan dengan aman.
-              </p>
-
-            </div>
-
-          </div>
-
         </div>
-
       </div>
-
     </section>
   );
 }

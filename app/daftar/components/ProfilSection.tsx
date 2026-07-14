@@ -1,277 +1,268 @@
-import FormInput from "../components/FormInput";
-import FormSelect from "../components/FormSelect";
+"use client";
+
+import { useState } from "react";
+import { Building2, User, Mail, Phone, MapPin, Globe, FileText, Upload } from "lucide-react";
 
 export default function ProfileSection() {
+  const [formData, setFormData] = useState({
+    institutionName: "",
+    institutionType: "",
+    address: "",
+    city: "",
+    province: "",
+    postalCode: "",
+    phone: "",
+    email: "",
+    website: "",
+    contactPerson: "",
+    contactPhone: "",
+    institutionProfile: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   return (
-    <section className="rounded-2xl border border-gray-200 bg-white shadow-sm">
-
-      {/* Header */}
-      <div className="border-b border-gray-200 px-8 py-5">
+    <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+      <div className="bg-[#0d6b70] px-6 py-4">
         <div className="flex items-center gap-3">
+          <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
+            <Building2 className="w-4 h-4 text-white" />
+          </div>
+          <h2 className="text-lg font-semibold text-white">Profile Lembaga</h2>
+        </div>
+      </div>
 
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-100">
-            <span className="text-xl">🏢</span>
+      <div className="p-6 space-y-6">
+        <div className="grid md:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Nama Lembaga <span className="text-red-500">*</span>
+            </label>
+            <div className="relative">
+              <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input
+                type="text"
+                name="institutionName"
+                placeholder="Masukkan nama lembaga"
+                value={formData.institutionName}
+                onChange={handleChange}
+                className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition"
+                required
+              />
+            </div>
           </div>
 
           <div>
-            <h2 className="text-xl font-semibold text-gray-800">
-              Profile Lembaga
-            </h2>
-
-            <p className="text-sm text-gray-500">
-              Lengkapi informasi dasar kelembagaan pekebun.
-            </p>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Jenis Lembaga <span className="text-red-500">*</span>
+            </label>
+            <select
+              name="institutionType"
+              value={formData.institutionType}
+              onChange={handleChange}
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition"
+              required
+            >
+              <option value="">Pilih jenis lembaga</option>
+              <option value="koperasi">Koperasi</option>
+              <option value="petani">Kelompok Tani</option>
+              <option value="perusahaan">Perusahaan</option>
+              <option value="yayasan">Yayasan</option>
+              <option value="lainnya">Lainnya</option>
+            </select>
           </div>
 
-        </div>
-      </div>
-
-      {/* Body */}
-      <div className="space-y-8 p-8">
-
-        {/* Informasi Dasar */}
-        <div>
-
-          <h3 className="mb-5 text-sm font-semibold uppercase tracking-wide text-gray-500">
-            Informasi Dasar
-          </h3>
-
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-4">
-
-            <FormInput
-              label="Nama Kelembagaan"
-              required
-              placeholder="Masukkan nama kelembagaan"
-            />
-
-            <FormInput
-              label="Email Lembaga"
-              type="email"
-              required
-              placeholder="email@contoh.com"
-            />
-
-            <FormInput
-              label="Nama Ketua"
-              required
-              placeholder="Nama Ketua Pengurus"
-            />
-
-            <FormInput
-              label="Telepon"
-              required
-              placeholder="021xxxxxxx"
-            />
-
-            <FormInput
-              label="Handphone"
-              required
-              placeholder="08xxxxxxxxxx"
-            />
-
-            <FormSelect
-              label="Jenis Lembaga"
-              required
-              options={[
-                "Kelompok Tani",
-                "Gabungan Kelompok Tani",
-                "Koperasi",
-                "Lainnya",
-              ]}
-            />
-
-          </div>
-
-        </div>
-
-        {/* Alamat */}
-        <div>
-
-          <h3 className="mb-5 text-sm font-semibold uppercase tracking-wide text-gray-500">
-            Alamat
-          </h3>
-
-          <div className="space-y-6">
-
-            <div>
-
-              <label className="mb-2 block text-sm font-medium text-gray-700">
-                Alamat
-                <span className="ml-1 text-red-500">*</span>
-              </label>
-
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Alamat <span className="text-red-500">*</span>
+            </label>
+            <div className="relative">
+              <MapPin className="absolute left-3 top-3 text-gray-400 w-4 h-4" />
               <textarea
-                rows={4}
-                placeholder="Masukkan alamat lengkap..."
-                className="
-                  w-full
-                  rounded-xl
-                  border
-                  border-gray-300
-                  px-4
-                  py-3
-                  text-sm
-                  outline-none
-                  transition
-                  focus:border-emerald-500
-                  focus:ring-4
-                  focus:ring-emerald-100
-                "
+                name="address"
+                placeholder="Masukkan alamat lengkap"
+                rows={2}
+                value={formData.address}
+                onChange={handleChange}
+                className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition resize-none"
+                required
               />
-
             </div>
-
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-4">
-
-              <FormSelect
-                label="Provinsi"
-                required
-                options={[]}
-              />
-
-              <FormSelect
-                label="Kabupaten"
-                required
-                options={[]}
-              />
-
-              <FormSelect
-                label="Kecamatan"
-                required
-                options={[]}
-              />
-
-              <FormSelect
-                label="Kelurahan / Desa"
-                required
-                options={[]}
-              />
-
-              <FormInput
-                label="Kode Pos"
-                required
-                placeholder="40111"
-              />
-
-              <FormInput
-                label="Petugas Input"
-                required
-                placeholder="Nama Petugas"
-              />
-
-              <FormInput
-                label="HP Petugas"
-                required
-                placeholder="08xxxxxxxxxx"
-              />
-
-            </div>
-
           </div>
 
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Kota/Kabupaten <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="city"
+              placeholder="Kota/Kabupaten"
+              value={formData.city}
+              onChange={handleChange}
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Provinsi <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="province"
+              placeholder="Provinsi"
+              value={formData.province}
+              onChange={handleChange}
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Kode Pos
+            </label>
+            <input
+              type="text"
+              name="postalCode"
+              placeholder="Kode Pos"
+              value={formData.postalCode}
+              onChange={handleChange}
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Nomor Telepon <span className="text-red-500">*</span>
+            </label>
+            <div className="relative">
+              <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="08123456789"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition"
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Email <span className="text-red-500">*</span>
+            </label>
+            <div className="relative">
+              <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input
+                type="email"
+                name="email"
+                placeholder="lembaga@email.com"
+                value={formData.email}
+                onChange={handleChange}
+                className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition"
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Website
+            </label>
+            <div className="relative">
+              <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input
+                type="url"
+                name="website"
+                placeholder="www.website.com"
+                value={formData.website}
+                onChange={handleChange}
+                className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Contact Person <span className="text-red-500">*</span>
+            </label>
+            <div className="relative">
+              <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input
+                type="text"
+                name="contactPerson"
+                placeholder="Nama contact person"
+                value={formData.contactPerson}
+                onChange={handleChange}
+                className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition"
+                required
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              No. HP Contact Person <span className="text-red-500">*</span>
+            </label>
+            <div className="relative">
+              <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <input
+                type="tel"
+                name="contactPhone"
+                placeholder="08123456789"
+                value={formData.contactPhone}
+                onChange={handleChange}
+                className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition"
+                required
+              />
+            </div>
+          </div>
         </div>
 
-        {/* Dokumen */}
         <div>
-
-          <h3 className="mb-5 text-sm font-semibold uppercase tracking-wide text-gray-500">
-            Dokumen Pendukung
-          </h3>
-
-          <div className="grid gap-8 lg:grid-cols-2">
-
-            {/* Upload */}
-            <div className="space-y-6">
-
-              <div>
-
-                <label className="mb-2 block text-sm font-medium text-gray-700">
-                  Legalitas
-                </label>
-
-                <input
-                  type="file"
-                  className="
-                    block
-                    w-full
-                    rounded-xl
-                    border
-                    border-dashed
-                    border-gray-300
-                    p-4
-                    text-sm
-                  "
-                />
-
-              </div>
-
-              <div>
-
-                <label className="mb-2 block text-sm font-medium text-gray-700">
-                  Dasar Penunjukan Ketua
-                </label>
-
-                <input
-                  type="file"
-                  className="
-                    block
-                    w-full
-                    rounded-xl
-                    border
-                    border-dashed
-                    border-gray-300
-                    p-4
-                    text-sm
-                  "
-                />
-
-              </div>
-
-            </div>
-
-            {/* Informasi */}
-            <div>
-
-              <div className="rounded-xl border border-blue-200 bg-blue-50 p-5">
-
-                <h4 className="font-semibold text-blue-700">
-                  Ketentuan Upload
-                </h4>
-
-                <ul className="mt-4 space-y-2 text-sm text-gray-700">
-
-                  <li>
-                    • Kelompok Tani / Gapoktan → Surat Registrasi
-                  </li>
-
-                  <li>
-                    • Koperasi → SK Pengesahan Koperasi
-                  </li>
-
-                  <li>
-                    • Lembaga Lain → Dokumen Pengesahan
-                  </li>
-
-                  <li>
-                    • Maksimal ukuran file 10 MB
-                  </li>
-
-                  <li>
-                    • Format PDF/JPG/PNG
-                  </li>
-
-                </ul>
-
-              </div>
-
-            </div>
-
+          <label className="block text-sm font-medium text-gray-700 mb-1.5">
+            Profile Lembaga <span className="text-red-500">*</span>
+          </label>
+          <div className="relative">
+            <FileText className="absolute left-3 top-3 text-gray-400 w-4 h-4" />
+            <textarea
+              name="institutionProfile"
+              placeholder="Deskripsikan profile lembaga Anda"
+              rows={3}
+              value={formData.institutionProfile}
+              onChange={handleChange}
+              className="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0d6b70] focus:border-transparent outline-none transition resize-none"
+              required
+            />
           </div>
-
         </div>
 
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1.5">
+            Dokumen Pendukung <span className="text-red-500">*</span>
+          </label>
+          <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-[#0d6b70] transition-colors relative">
+            <Upload className="w-10 h-10 text-gray-400 mx-auto mb-3" />
+            <p className="text-sm text-gray-600">
+              <span className="font-medium text-[#0d6b70]">Klik untuk upload</span> atau drag and drop
+            </p>
+            <p className="text-xs text-gray-400 mt-1">PDF, PNG, JPG (Max. 10MB)</p>
+            <input
+              type="file"
+              className="absolute inset-0 opacity-0 cursor-pointer"
+              accept=".pdf,.png,.jpg,.jpeg"
+            />
+          </div>
+        </div>
       </div>
-
-    </section>
+    </div>
   );
 }
